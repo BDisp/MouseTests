@@ -162,7 +162,7 @@ class Program
                     }
 
                     SetCurrentLine(3);
-                    Console.Write($"Counter: {counter}");
+                    Console.WriteLine($"Counter: {counter}");
                     lastMouseEventFlags = mouseEvent.dwEventFlags;
                     lastMousePosition = mouseEvent.dwMousePosition;
                 }
