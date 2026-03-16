@@ -86,6 +86,7 @@ class Program
         uint numRead;
         uint lastMouseEventFlags = 0;
         COORD lastMousePosition = new();
+        int counter = 0;
 
         Console.Clear();
         Console.WriteLine("Mouse events capture started. Press ESC to exit.");
@@ -98,6 +99,7 @@ class Program
                 if (records[0].EventType == MOUSE_EVENT)
                 {
                     var mouseEvent = records[0].MouseEvent;
+                    counter++;
 
                     SetCurrentLine(1);
                     Console.Write($"lastMouseEventFlags: ");
@@ -159,6 +161,8 @@ class Program
                         }
                     }
 
+                    SetCurrentLine(3);
+                    Console.Write($"Counter: {counter}");
                     lastMouseEventFlags = mouseEvent.dwEventFlags;
                     lastMousePosition = mouseEvent.dwMousePosition;
                 }
