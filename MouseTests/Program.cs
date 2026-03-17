@@ -77,6 +77,9 @@ class Program
 
     static void Main(string[] args)
     {
+        // Switch to the alternate screen buffer
+        Console.Out.Write("\x1b{1049h");
+
         IntPtr hConsoleInput = GetStdHandle(STD_INPUT_HANDLE);
 
         // Set the console mode to enable mouse and keyboard input
@@ -184,6 +187,9 @@ class Program
                 }
             }
         }
+
+        // Switch back to the normal screen buffer
+        Console.Out.Write("\x1b{1049l");
     }
 
     private static void SetCurrentLine(int line)
