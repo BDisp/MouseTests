@@ -123,6 +123,12 @@ class Program
                         case MOUSE_HWHEELED:
                             Console.WriteLine($"Mouse horizontal wheeled at ({lastMousePosition.X}, {lastMousePosition.Y})");
                             break;
+                        case MOUSE_MOVED | DOUBLE_CLICK:
+                            Console.WriteLine($"Mouse pressed and moved to ({lastMousePosition.X}, {lastMousePosition.Y})");
+                            break;
+                        default:
+                            Console.WriteLine($"Unknown event with flags {lastMouseEventFlags} at ({lastMousePosition.X}, {lastMousePosition.Y})");
+                            break;
                     }
 
                     SetCurrentLine(2);
